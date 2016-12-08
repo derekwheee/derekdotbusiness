@@ -17,7 +17,7 @@ app.set('view engine', '.hbs');
 // HTTPS Enforcement Redirect
 app.get('*',function(req, res, next){
 
-    const isSecure = false;
+    var isSecure = false;
     const exceptions = req.hostname === 'localhost' ||
                        req.hostname.match(/\.local$/);
 
