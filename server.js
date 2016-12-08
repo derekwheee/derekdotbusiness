@@ -21,22 +21,14 @@ app.get('*',function(req, res, next){
     const exceptions = req.hostname === 'localhost' ||
                        req.hostname.match(/\.local$/);
 
+    // This is all because of Cloudflare Flexible SSL
     try {
         isSecure = JSON.parse(req.headers['cf-visitor']).scheme === 'https';
     } catch (err) {
         console.log(err);
-        console.log(typeof req.headers['cf-visitor']);
     }
 
     if (!isSecure && !exceptions) {
-        console.log(`Insecure: ${req.hostname}`);
-        console.log(`Insecure: ${req.protocol}`);
-        console.log(`Insecure: ${isSecure}`);
-
-        Object.keys(req.headers).forEach(function(key) {
-            console.log(`${key}: ${req.headers[key]}`);
-        });
-
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
@@ -53,7 +45,6 @@ app.get('*',function(req, res, next){
                        req.hostname.match(/^derek\.business$/);
 
     if (!exceptions) {
-        console.log(`Incorrect hostname: ${req.hostname}`);
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
