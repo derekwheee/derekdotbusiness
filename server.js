@@ -20,7 +20,8 @@ app.get('*',function(req, res, next){
     const exceptions = req.hostname === 'localhost' ||
                        req.hostname.match(/\.local$/);
 
-    if (req.protocol !== 'https' && !exceptions) {
+    if (!req.secure && !exceptions) {
+        console.log(req.hostname);
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
@@ -36,7 +37,8 @@ app.get('*',function(req, res, next){
                        req.hostname.match(/\.herokuapp.com$/) ||
                        req.hostname.match(/^derek\.business$/);
 
-    if (req.protocol !== 'https' && !exceptions) {
+    if (!exceptions) {
+        console.log(req.hostname);
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
