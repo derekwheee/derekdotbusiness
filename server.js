@@ -14,6 +14,36 @@ app.engine('.hbs', handlebars({
 }));
 app.set('view engine', '.hbs');
 
+// HTTPS Enforcement Redirect
+app.get('*',function(req, res, next){
+
+    const exceptions = req.hostname === 'localhost' ||
+                       req.hostname.match(/\.local$/);
+
+    if (req.protocol !== 'https' && !exceptions) {
+        res.redirect(301, `https://derek.business${req.originalUrl}`);
+    } else {
+        next();
+    }
+
+});
+
+// Canonical Hostname Enforcement Redirect
+app.get('*',function(req, res, next){
+
+    const exceptions = req.hostname === 'localhost' ||
+                       req.hostname.match(/\.local$/) ||
+                       req.hostname.match(/\.herokuapp.com$/) ||
+                       req.hostname.match(/^derek\.business$/);
+
+    if (req.protocol !== 'https' && !exceptions) {
+        res.redirect(301, `https://derek.business${req.originalUrl}`);
+    } else {
+        next();
+    }
+
+});
+
 app.get('/', function(req, res) {
   res.render('home');
 });
