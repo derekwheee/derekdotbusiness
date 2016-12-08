@@ -21,7 +21,7 @@ app.get('*',function(req, res, next){
                        req.hostname.match(/\.local$/);
 
     if (!req.secure && !exceptions) {
-        console.log(req.hostname);
+        console.log(`Insecure: ${req.hostname}`);
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
@@ -38,7 +38,7 @@ app.get('*',function(req, res, next){
                        req.hostname.match(/^derek\.business$/);
 
     if (!exceptions) {
-        console.log(req.hostname);
+        console.log(`Incorrect hostname: ${req.hostname}`);
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
