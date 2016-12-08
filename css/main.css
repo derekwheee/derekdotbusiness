@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  margin: 5em;
+  font-family: sans-serif; }
+
+.db-header {
+  margin: 5em 0; }
+  .db-header_title {
+    display: block;
+    font-weight: bold;
+    font-size: 5em;
+    text-decoration: none;
+    color: inherit; }
+    .db-header_title:hover, .db-header_title:focus {
+      text-decoration: underline; }
