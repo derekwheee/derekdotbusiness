@@ -1,6 +1,7 @@
 const express = require('express');
 const handlebars  = require('express-handlebars');
 const app = express();
+const posts = require('./app/posts.js');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,7 +16,7 @@ app.engine('.hbs', handlebars({
 app.set('view engine', '.hbs');
 
 // HTTPS Enforcement Redirect
-app.get('*',function(req, res, next){
+app.get('*', function (req, res, next){
 
     var isSecure = false;
     const exceptions = req.hostname === 'localhost' ||
@@ -24,9 +25,7 @@ app.get('*',function(req, res, next){
     // This is all because of Cloudflare Flexible SSL
     try {
         isSecure = JSON.parse(req.headers['cf-visitor']).scheme === 'https';
-    } catch (err) {
-        console.log(err);
-    }
+    } catch (err) {}
 
     if (!isSecure && !exceptions) {
         res.redirect(301, `https://derek.business${req.originalUrl}`);
@@ -37,7 +36,7 @@ app.get('*',function(req, res, next){
 });
 
 // Canonical Hostname Enforcement Redirect
-app.get('*',function(req, res, next){
+app.get('*', function (req, res, next){
 
     const exceptions = req.hostname === 'localhost' ||
                        req.hostname.match(/\.local$/) ||
@@ -52,8 +51,12 @@ app.get('*',function(req, res, next){
 
 });
 
-app.get('/', function(req, res) {
-  res.render('home');
+app.get('/', function (req, res) {
+    res.render('home', { posts : posts });
+});
+
+app.get('/blerg/:post', function (req, res) {
+    res.render(`blerg/${req.params.post}`);
 });
 
 app.listen(app.get('port'), () => {
