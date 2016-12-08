@@ -20,18 +20,12 @@ app.get('*',function(req, res, next){
     const exceptions = req.hostname === 'localhost' ||
                        req.hostname.match(/\.local$/);
 
-
-
-                       Object.keys(req.headers).forEach(function(key) {
-                           console.log(`Header: ${req.headers[key]}`);
-                       });
-
     if (!req.secure && !exceptions) {
         console.log(`Insecure: ${req.hostname}`);
         console.log(`Insecure: ${req.protocol}`);
 
         Object.keys(req.headers).forEach(function(key) {
-            console.log(`Header: ${req.headers[key]}`);
+            console.log(`${key}: ${req.headers[key]}`);
         });
 
         res.redirect(301, `https://derek.business${req.originalUrl}`);
