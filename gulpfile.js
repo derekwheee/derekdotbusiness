@@ -27,3 +27,5 @@ gulp.task('watch', ['sass'], () => {
 })
 
 gulp.task('dev', ['watch']);
+
+gulp.task('build', ['sass']);
