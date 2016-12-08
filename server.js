@@ -17,10 +17,18 @@ app.set('view engine', '.hbs');
 // HTTPS Enforcement Redirect
 app.get('*',function(req, res, next){
 
+    var isSecure = false;
     const exceptions = req.hostname === 'localhost' ||
                        req.hostname.match(/\.local$/);
 
-    if (req.protocol !== 'https' && !exceptions) {
+    // This is all because of Cloudflare Flexible SSL
+    try {
+        isSecure = JSON.parse(req.headers['cf-visitor']).scheme === 'https';
+    } catch (err) {
+        console.log(err);
+    }
+
+    if (!isSecure && !exceptions) {
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
@@ -36,7 +44,7 @@ app.get('*',function(req, res, next){
                        req.hostname.match(/\.herokuapp.com$/) ||
                        req.hostname.match(/^derek\.business$/);
 
-    if (req.protocol !== 'https' && !exceptions) {
+    if (!exceptions) {
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
