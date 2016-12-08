@@ -23,7 +23,11 @@ app.get('*',function(req, res, next){
     if (!req.secure && !exceptions) {
         console.log(`Insecure: ${req.hostname}`);
         console.log(`Insecure: ${req.protocol}`);
-        console.log(`Insecure: ${req.headers}`);
+
+        req.headers.forEach(function (el) {
+            console.log(`Header: ${el}`);
+        })
+
         res.redirect(301, `https://derek.business${req.originalUrl}`);
     } else {
         next();
