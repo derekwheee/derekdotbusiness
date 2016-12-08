@@ -1,0 +1,14 @@
+.db-header {
+
+    &_title {
+        display: block;
+        font-size: 5em;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
