@@ -4,7 +4,7 @@
   "description": "Repo for derek.business",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc ava",
     "start": "node server.js",
     "postinstall": "gulp build"
   },
@@ -18,14 +18,22 @@
     "url": "https://github.com/frxnz/derekdotbusiness/issues"
   },
   "homepage": "https://github.com/frxnz/derekdotbusiness#readme",
+  "ava": {
+    "files": [
+      "tests/**/*.js"
+    ]
+  },
   "dependencies": {
+    "chalk": "^1.1.3",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
-    "chalk": "^1.1.3",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2"
   },
   "devDependencies": {
-
+    "ava": "^0.17.0",
+    "nyc": "^10.0.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
   }
 }

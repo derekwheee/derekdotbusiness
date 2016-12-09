@@ -2,6 +2,7 @@ const express = require('express');
 const handlebars  = require('express-handlebars');
 const app = express();
 const posts = require('./app/posts.js');
+var server;
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -55,10 +56,19 @@ app.get('/', function (req, res) {
     res.render('home', { posts : posts });
 });
 
+app.get('/blerg', function (req, res) {
+    res.render('blerg', { posts : posts });
+});
+
 app.get('/blerg/:post', function (req, res) {
     res.render(`blerg/${req.params.post}`);
 });
 
-app.listen(app.get('port'), () => {
+server = app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
+
+module.exports = {
+    server : server,
+    app : app
+};
