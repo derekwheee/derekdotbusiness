@@ -2,7 +2,7 @@ const express = require('express');
 const handlebars  = require('express-handlebars');
 const app = express();
 const posts = require('./app/posts.js');
-const hbs = hbs = handlebars.create({
+const hbs = handlebars.create({
     defaultLayout : 'main',
     extname : '.hbs',
     layoutsDir : 'views/layouts/',
