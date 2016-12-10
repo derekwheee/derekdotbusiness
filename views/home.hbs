@@ -1,9 +1,9 @@
-<h2>Blog Posts</h2>
+<h2>Articles</h2>
 
 <ul class="db-listing">
     {{#each posts}}
         <li class="db-listing_item">
-            <a href="blerg/{{slug}}">{{title}}</a> - {{date}}<br />
+            <a href="blerg/{{slug}}">{{title}}</a> - {{formatDate date}}<br />
             {{subtitle}}
         </li>
     {{/each}}

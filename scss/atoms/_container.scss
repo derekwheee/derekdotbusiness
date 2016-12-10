@@ -1,0 +1,9 @@
+.db-container {
+    max-width: 50em;
+    margin: 0 auto;
+    padding: 2em 5em;
+
+    @include bp("small") {
+        padding: 2em 1em;
+    }
+}

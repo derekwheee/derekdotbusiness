@@ -2,18 +2,20 @@ const express = require('express');
 const handlebars  = require('express-handlebars');
 const app = express();
 const posts = require('./app/posts.js');
+const hbs = hbs = handlebars.create({
+    defaultLayout : 'main',
+    extname : '.hbs',
+    layoutsDir : 'views/layouts/',
+    partialsDir : 'views/partials/',
+    helpers : require('./helpers.js')(handlebars)
+});
 var server;
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname));
 
-app.engine('.hbs', handlebars({
-    defaultLayout : 'main',
-    extname : '.hbs',
-    layoutsDir : 'views/layouts/',
-    partialsDir : 'views/partials/',
-}));
+app.engine(".hbs", hbs.engine);
 app.set('view engine', '.hbs');
 
 // HTTPS Enforcement Redirect

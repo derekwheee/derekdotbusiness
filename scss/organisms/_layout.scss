@@ -5,6 +5,13 @@ body {
 }
 
 body {
-    margin: 5em;
+    background: $COLOR-light-gray;
     font-family: sans-serif;
+    font-size: 1.25em;
+    line-height: 1.5;
+    color: $COLOR-black;
+
+    @include bp("small") {
+        font-size: 1em;
+    }
 }
