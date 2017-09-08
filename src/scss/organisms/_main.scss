@@ -1,0 +1,10 @@
+.db-main {
+    max-width: 70em;
+    margin: 5em auto;
+    padding: 5em;
+
+    @include bp('small') {
+        margin: 2em auto;
+        padding: 2em;
+    }
+}

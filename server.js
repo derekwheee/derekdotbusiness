@@ -66,6 +66,10 @@ app.get('/blerg/:post', function (req, res) {
     res.render(`blerg/${req.params.post}`);
 });
 
+app.get('/:page', function (req, res) {
+    res.render(`content/${req.params.page}`);
+});
+
 server = app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
