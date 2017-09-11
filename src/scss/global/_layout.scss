@@ -14,7 +14,12 @@ body {
 
 body {
     box-sizing: border-box;
-    font-size: 1em;
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 1.25em;
     line-height: 1.5;
     background: #f7f6f7;
+
+    @include bp('small') {
+        font-size: 1em;
+    }
 }

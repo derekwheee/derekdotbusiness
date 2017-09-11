@@ -1,9 +1,8 @@
 .db-heading {
-    font-family: 'Inconsolata', monospace;
-    font-size: 4em;
+    font-family: 'Hind', sans-serif;
+    font-size: 3em;
     font-weight: 700;
     line-height: 1;
-    text-transform: lowercase;
 
     @include bp('small') {
         font-size: 2em;
@@ -11,6 +10,6 @@
 
     &_special {
         font-style: italic;
-        color: #f4f;
+        color: #DF3088;
     }
 }

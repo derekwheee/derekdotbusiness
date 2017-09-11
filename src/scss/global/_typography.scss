@@ -1,3 +1,16 @@
+p {
+    margin: 2em 0;
+}
+
+a {
+    color: #C835C8;
+
+    &:hover,
+    &:focus {
+        color: darken(#C835C8, 10%);
+    }
+}
+
 h1,
 h2,
 h3,
