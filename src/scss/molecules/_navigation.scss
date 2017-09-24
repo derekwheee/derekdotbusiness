@@ -1,10 +1,11 @@
 .db-navigation {
-    max-width: 70em;
-    margin: 0 auto;
-    padding: 1em 5em;
+    width: calc(100% - 10em);
+    max-width: 60em;
+    margin: 2em auto;
 
     @include bp('small') {
-        padding: 1em 2em;
+        width: calc(100% - 2em);
+        margin: 2em auto;
     }
 
     a {

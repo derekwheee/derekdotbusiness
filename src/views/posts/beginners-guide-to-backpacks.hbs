@@ -34,11 +34,11 @@ date: 2015-08-20T21:09:21
 
 <p>The next step is to wire up the backpack. First you need to connect I<sup>2</sup>C pins. Connect SDA on the host microcontroller to SDA on the backpack, then connect SCL on the host microcontroller to SCL on the backpack. On most Arduino and Arduino-compatible boards SDA is pin A4, and SCL is pin A5, but check the pinout for your board if you’re not sure.</p>
 
-<p><img data-src="/img/backpack/backpack_i2c.png" alt="Attach I2C Bus" width="1426" height="875"/></p>
+<img data-src="/img/backpack/backpack_i2c.png" class="db-img_full" alt="Attach I2C Bus" width="1426" height="875"/>
 
 <p>Next attach a ground pin on the backpack to ground on the host board. Finally, you can typically power the backpack directly from the host board. Find a 5V pin (or 3V3 if you’re using a 3.3V backpack) and run it to the VIN or RAW pin on your backpack.</p>
 
-<p><img data-src="/img/backpack/backpack_power.png" alt="Attach Power" width="1476" height="879" /></p>
+<img data-src="/img/backpack/backpack_power.png" class="db-img_full" alt="Attach Power" width="1476" height="879" />
 
 <h3 id="hook-up-the-neopixels">Hook up the NeoPixels</h3>
 
@@ -46,7 +46,7 @@ date: 2015-08-20T21:09:21
 
 <p>All we have left to do is attach data to a pin on the backpack, and hook up (external) power to the strip. NeoPixels use a lot of power, so it’s always a good idea to power them externally. Just make sure every piece of the circuit shares a common ground.</p>
 
-<p><img data-src="/img/backpack/backpack_neopixels.png" alt="Attach NeoPixels" width="1224" height= /></p>
+<img data-src="/img/backpack/backpack_neopixels.png" class="db-img_full" alt="Attach NeoPixels" width="1224" height= />
 
 <h3 id="run-your-program">Run your program</h3>
 

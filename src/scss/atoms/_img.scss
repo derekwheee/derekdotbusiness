@@ -1,0 +1,11 @@
+.db-img {
+    max-width: 100%;
+
+    &_full {
+        margin: 4em auto;
+
+        @include bp('small') {
+            margin: 2em auto;
+        }
+    }
+}
