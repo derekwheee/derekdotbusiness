@@ -1,0 +1,19 @@
+.db-navigation {
+    max-width: 70em;
+    padding: 1em 5em;
+
+    @include bp('small') {
+        padding: 1em 2em;
+    }
+
+    a {
+        text-decoration: none;
+        color: #999;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            color: darken(#C835C8, 10%);
+        }
+    }
+}

@@ -12,14 +12,21 @@ body {
     padding: 0;
 }
 
+html {
+    font-size: 1.25em;
+}
+
 body {
     box-sizing: border-box;
     font-family: 'Inconsolata', sans-serif;
-    font-size: 1.25em;
     line-height: 1.5;
     background: #f7f6f7;
 
     @include bp('small') {
         font-size: 1em;
     }
+}
+
+img {
+    max-width: 100%;
 }

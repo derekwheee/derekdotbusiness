@@ -1,0 +1,21 @@
+.db-listing {
+    margin-bottom: 4em;
+    
+    &_link {
+        display: block;
+        margin: 0.25em 0 0.125em;
+        font-family: 'Hind', sans-serif;
+        font-size: 2em;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    &_subtitle {
+
+    }
+
+    &_timestamp { 
+        font-size: 0.75em;
+        text-transform: uppercase;
+    }
+}

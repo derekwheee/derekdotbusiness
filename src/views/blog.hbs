@@ -1,0 +1,13 @@
+---
+title: Blog
+---
+
+<h1 class="db-heading">This is the blog</h1>
+
+{{#view-list path="src/views/posts" sortBy="date" className="db-listing"}}
+    <div class="db-listing_timestamp"><time>{{formatDate date}}</time></div>
+    <a href="{{url}}" class="db-listing_link">{{title}}</a>
+    {{#if subtitle}}
+        <div class="db-listing_subtitle">{{subtitle}}</div>
+    {{/if}}
+{{/view-list}}

@@ -1,4 +1,5 @@
 const lousyLoad = require('lousy-load');
+const prism = require('prismjs');
 
 const common = {
     init() {
